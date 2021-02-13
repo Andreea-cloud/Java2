@@ -28,7 +28,7 @@ public class UserServiceImplement extends UnicastRemoteObject implements UserSer
     }
 
     @Override
-    public int signin(UserDTO userDTO) throws RemoteException {
+    public int register(UserDTO userDTO) throws RemoteException {
         Optional<User> userOptional = userRepository
                 .findByUsername(userDTO.getUsername());
 

@@ -1,21 +1,20 @@
-package library.dto;
+package server.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
-public class UserDTO {
+@Entity
+public class Client {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(nullable = false)
     private String username;
+
+    @Column(nullable = false)
     private String password;
-
-    public UserDTO(int id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-    }
-
-    UserDTO(){
-    }
 
     public int getId() { return id; }
 
@@ -30,22 +29,13 @@ public class UserDTO {
     public void setPassword(String password) { this.password = password; }
 
     @Override
-    public String toString() {
-        return "UserDTO{" +
-                "username='" + username + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserDTO userDTO = (UserDTO) o;
-        return id == userDTO.id;
+        Client client = (Client) o;
+        return id == client.id;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+    public int hashCode() { return Objects.hash(id); }
 }

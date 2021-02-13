@@ -2,19 +2,19 @@ package library.dto;
 
 import java.util.Objects;
 
-public class UserDTO {
+public class ClientDTO {
 
     private int id;
     private String username;
     private String password;
 
-    public UserDTO(int id, String username, String password) {
+    public ClientDTO(int id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
     }
 
-    UserDTO(){
+    ClientDTO(){
     }
 
     public int getId() { return id; }
@@ -31,7 +31,7 @@ public class UserDTO {
 
     @Override
     public String toString() {
-        return "UserDTO{" +
+        return "ClientDTO{" +
                 "username='" + username + '\'' +
                 '}';
     }
@@ -40,12 +40,10 @@ public class UserDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserDTO userDTO = (UserDTO) o;
-        return id == userDTO.id;
+        ClientDTO clientDTO = (ClientDTO) o;
+        return id == clientDTO.id;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+    public int hashCode() { return Objects.hash(id); }
 }

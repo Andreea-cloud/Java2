@@ -1,37 +1,37 @@
 package server.repository;
 
-import library.dto.UserDTO;
-import server.model.User;
+import library.dto.ClientDTO;
+import server.model.Client;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.Optional;
 
-public class UserRepository {
+public class ClientRepository {
 
     private EntityManager em;
 
-    public UserRepository(){
+    public ClientRepository(){
         var emf = Persistence.createEntityManagerFactory("java2PU");
         this.em = emf.createEntityManager();
     }
 
-    public User create(UserDTO userDTO){
-        User u = new User();
+    public Client create(ClientDTO clientDTO){
+        Client c = new Client();
 
-        u.setUsername(userDTO.getUsername());
-        u.setPassword(userDTO.getPassword());
+        c.setUsername(clientDTO.getUsername());
+        c.setPassword(clientDTO.getPassword());
 
         em.getTransaction().begin();
-        em.persist(u);
+        em.persist(c);
         em.getTransaction().commit();
 
-        return u;
+        return c;
     }
 
-    public Optional<User> findByUsername(String username){
-        TypedQuery<User> query = em.createNamedQuery("User.findByUsername", User.class);
+    public Optional<Client> findByUsername(String username){
+        TypedQuery<Client> query = em.createNamedQuery("Client.findByUsername", Client.class);
         query.setParameter("username", username);
         return query.getResultStream().findFirst();
     }
