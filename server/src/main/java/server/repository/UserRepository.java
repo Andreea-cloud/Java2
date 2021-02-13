@@ -4,6 +4,8 @@ import library.dto.UserDTO;
 import server.model.User;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import java.util.Optional;
 
 public class UserRepository {
 
@@ -28,5 +30,9 @@ public class UserRepository {
         return u;
     }
 
-
+    public Optional<User> findByUsername(String username){
+        TypedQuery<User> query = em.createNamedQuery("User.findByUsername", User.class);
+        query.setParameter("username", username);
+        return query.getResultStream().findFirst();
+    }
 }
