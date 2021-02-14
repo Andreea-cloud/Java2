@@ -10,17 +10,14 @@ public class MainFrame extends JFrame {
 
     public MainFrame(){
         setTitle("Delivery Application");
-        setSize(500, 500);
-
-        mainLabel = new JLabel("WELCOME!!!");
 
         clientButton.addActionListener(e -> {
+            new LoginClientFrame();
             dispose();
-            new LoginUserFrame();
         });
         courierButton.addActionListener(e -> {
-            dispose();
             new LoginUserFrame();
+            dispose();
         });
 
         setContentPane(mainPanel);

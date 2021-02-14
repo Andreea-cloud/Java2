@@ -1,8 +1,9 @@
 package library.dto;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class UserDTO {
+public class UserDTO implements Serializable {
 
     private int id;
     private String username;

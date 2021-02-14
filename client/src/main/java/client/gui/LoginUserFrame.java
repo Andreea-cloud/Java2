@@ -18,11 +18,11 @@ public class LoginUserFrame extends JFrame{
     public LoginUserFrame(){
 
         setTitle("Login/Register");
-        setSize(700, 700);
 
-        mainLabel = new JLabel("Please enter your details: ");
-        usernameLabel =new JLabel("Username: ");
-        passwordLabel = new JLabel("Password: ");
+        setContentPane(mainPanel);
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
 
         loginButton.addActionListener(ev -> {
             String username = usernameField.getText();
@@ -30,8 +30,8 @@ public class LoginUserFrame extends JFrame{
             UserDTO userDTO = new UserDTO(0, username, password);
 
             try{
+                new RegisteredOrdersFrame();
                 dispose();
-                new registeredOrdersFrame();
             }catch(IllegalArgumentException e){
                 JOptionPane.showMessageDialog(null, "Username or password wrong");
                 usernameField.setText("");

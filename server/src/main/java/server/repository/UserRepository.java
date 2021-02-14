@@ -13,7 +13,7 @@ public class UserRepository {
     private EntityManager em;
 
     public UserRepository(){
-        var emf = Persistence.createEntityManagerFactory("java2PU");
+        var emf = Persistence.createEntityManagerFactory("Java2PU");
         this.em = emf.createEntityManager();
     }
 

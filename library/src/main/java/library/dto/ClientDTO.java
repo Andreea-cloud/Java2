@@ -1,8 +1,9 @@
 package library.dto;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class ClientDTO {
+public class ClientDTO implements Serializable {
 
     private int id;
     private String username;
