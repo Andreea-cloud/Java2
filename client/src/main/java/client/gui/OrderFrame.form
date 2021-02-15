@@ -23,7 +23,7 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value=""/>
+          <text value="Client Name"/>
         </properties>
       </component>
       <component id="70de3" class="javax.swing.JLabel" binding="addressLabel">
@@ -31,7 +31,7 @@
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Address"/>
         </properties>
       </component>
       <component id="e2703" class="javax.swing.JLabel" binding="typePackegeLabel">
@@ -39,7 +39,7 @@
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Package Type"/>
         </properties>
       </component>
       <component id="56da3" class="javax.swing.JLabel" binding="weightLabel">
@@ -47,7 +47,7 @@
           <grid row="5" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Package Weight"/>
         </properties>
       </component>
       <component id="8121" class="javax.swing.JTextField" binding="nameField">

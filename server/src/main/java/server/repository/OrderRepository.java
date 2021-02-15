@@ -38,9 +38,9 @@ public class OrderRepository {
         return null;
     }
 
-    public Optional<Order> findByCostIndex(int costIndex){
-        TypedQuery<Order> query = em.createNamedQuery("Order.findByCostIndex", Order.class);
-        query.setParameter("costIndex", costIndex);
+    public Optional<Order> findByAddress(String address){
+        TypedQuery<Order> query = em.createNamedQuery("Order.findByAddress", Order.class);
+        query.setParameter("address", address);
         return query.getResultStream().findFirst();
     }
 }

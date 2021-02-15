@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@NamedQuery(name = "Order.findByCostIndex", query = "SELECT o FROM Order o WHERE o.costIndex = :costIndex")
+//@NamedQuery(name = "Order.findByCostIndex", query = "SELECT o FROM Order o WHERE o.costIndex = :costIndex")
+@NamedQuery(name = "Order.findByAddress", query = "SELECT o FROM Order o WHERE o.address = :address")
 public class Order {
 
     @Id

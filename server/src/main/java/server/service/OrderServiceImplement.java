@@ -19,6 +19,7 @@ public class OrderServiceImplement extends UnicastRemoteObject implements OrderS
 
     @Override
     public int placeOrder(OrderDTO orderDTO) throws RemoteException {
+        Optional<Order> orderOptional = orderRepository.findByAddress(orderDTO.getAddress());
         return orderRepository.create(orderDTO).getId();
     }
 

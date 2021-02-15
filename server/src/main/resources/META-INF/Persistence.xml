@@ -10,7 +10,7 @@
 
         <properties>
 
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/Java2"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/java2"/>
 
             <property name="javax.persistence.jdbc.user" value="root"/>
 
