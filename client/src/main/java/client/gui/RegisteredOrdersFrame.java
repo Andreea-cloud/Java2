@@ -11,5 +11,7 @@ public class RegisteredOrdersFrame extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+
+
     }
 }

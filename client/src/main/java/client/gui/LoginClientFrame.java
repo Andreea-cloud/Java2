@@ -45,7 +45,7 @@ public class LoginClientFrame extends JFrame{
 
             try{
                 int id = ClientController.getInstance().register(clientDTO);
-                JOptionPane.showMessageDialog(null, "Congratulations! Your id is " + id);
+                JOptionPane.showMessageDialog(null, "Congratulations! Your ID is " + id);
             }catch(IllegalArgumentException e){
                 JOptionPane.showMessageDialog(null, "Username already registered! Please choose another: ");
                 passwordField.setText("");

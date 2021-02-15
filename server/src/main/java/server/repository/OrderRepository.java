@@ -2,7 +2,6 @@ package server.repository;
 
 import library.dto.OrderDTO;
 import server.model.Order;
-import server.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -35,7 +34,8 @@ public class OrderRepository {
     }
 
     public Order delivery(OrderDTO orderDTO){
-        return ;
+
+        return null;
     }
 
     public Optional<Order> findByCostIndex(int costIndex){

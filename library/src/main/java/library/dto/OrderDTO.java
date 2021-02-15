@@ -11,13 +11,13 @@ public class OrderDTO implements Serializable {
     private String weight;
     private int costIndex;
 
-    public OrderDTO(int id, String name, String address, String typePackage, String weight, int costIndex) {
+    public OrderDTO(int id, String name, String address, String typePackage, String weight) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.typePackage = typePackage;
         this.weight = weight;
-        this.costIndex = costIndex;
+        this.costIndex = 0;
     }
 
     OrderDTO(){
