@@ -12,5 +12,9 @@ public class OrderFrame extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+
+        setTitle("Order List");
+
+
     }
 }
