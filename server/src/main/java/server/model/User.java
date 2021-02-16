@@ -1,6 +1,8 @@
 package server.model;
 
 import javax.persistence.*;
+import javax.persistence.criteria.Order;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,9 +18,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    public int getId() {
-        return id;
-    }
+    @OneToMany
+    private List<OrderDelivery> order;
+
+    public int getId() { return id; }
 
     public void setId(int id) {
         this.id = id;
@@ -38,6 +41,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<OrderDelivery> getOrder() { return order; }
+
+    public void setOrder(List<OrderDelivery> order) {
+        this.order = order;
     }
 
     @Override

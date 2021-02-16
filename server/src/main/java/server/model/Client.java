@@ -1,6 +1,7 @@
 package server.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +18,9 @@ public class Client {
     @Column(nullable = false)
     private String password;
 
+    @ElementCollection
+    private List<String> address;
+
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }
@@ -28,6 +32,10 @@ public class Client {
     public String getPassword() { return password; }
 
     public void setPassword(String password) { this.password = password; }
+
+    public List<String> getAddress() { return address; }
+
+    public void setAddress(List<String> address) { this.address = address; }
 
     @Override
     public boolean equals(Object o) {

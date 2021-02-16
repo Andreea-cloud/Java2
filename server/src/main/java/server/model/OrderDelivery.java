@@ -14,15 +14,22 @@ public class OrderDelivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String address;
 
+    @Column(nullable = false)
     private String typePackage;
 
+    @Column(nullable = false)
     private String weight;
 
     private int costIndex;
+
+    @ManyToOne
+    private User user;
 
     public void setId(int id) { this.id = id; }
 
@@ -47,6 +54,10 @@ public class OrderDelivery {
     public String getWeight() { return weight; }
 
     public int getCostIndex() { return costIndex; }
+
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
 
     @Override
     public boolean equals(Object o) {
