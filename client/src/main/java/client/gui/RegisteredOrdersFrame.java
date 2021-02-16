@@ -24,7 +24,6 @@ public class RegisteredOrdersFrame extends JFrame {
             int id = Integer.parseInt(textField.getText());
             OrderDTO orderDTO = new OrderDTO(id, "", "", "", "");
 
-
             try{
                 OrderController.getInstance().deleteOrder(orderDTO);
                 JOptionPane.showMessageDialog(null, "Your selected to deliver order with id: #" + id);
@@ -34,6 +33,5 @@ public class RegisteredOrdersFrame extends JFrame {
                 JOptionPane.showMessageDialog(null, "Your order cannot be processed!");
             }
         });
-
     }
 }

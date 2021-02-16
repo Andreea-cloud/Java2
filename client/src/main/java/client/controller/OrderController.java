@@ -40,11 +40,9 @@ public class OrderController {
         }
         public int deleteOrder(OrderDTO orderDTO){
                 try{
-                        System.out.println("Id-ul este: " + orderDTO.getId());
-
                         return orderService.deliverOrder(orderDTO);
                 }catch (RemoteException e){
-                        throw new RuntimeException(e);
+                        return 0;
                 }
         }
 

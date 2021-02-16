@@ -1,12 +1,14 @@
 package server.repository;
 
 import library.dto.OrderDTO;
+import org.hibernate.hql.internal.ast.QuerySyntaxException;
 import server.model.OrderDelivery;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import java.rmi.RemoteException;
 import java.util.Optional;
 
 public class OrderRepository {
@@ -41,24 +43,26 @@ public class OrderRepository {
     }
 
     public Optional<OrderDelivery> findById(int id){
+        em.getTransaction().begin();
         TypedQuery<OrderDelivery> query = em.createNamedQuery("OrderDelivery.findById", OrderDelivery.class);
-        System.out.println("5");
         query.setParameter("id", id);
-        System.out.println("6");
-        return query.getResultStream().findFirst();
+        Optional<OrderDelivery> od = query.getResultStream().findFirst();
+        em.getTransaction().commit();
+        return od;
     }
 
     public int deleteById(int id){
-        System.out.println("1");
-        Query query = em.createQuery("OrderDelivery.deleteById",OrderDelivery.class);
-//        Query query = em.createQuery("DELETE FROM Orders o WHERE o.id = :id");
-        System.out.println("2");
-        query.setParameter("id", id);
-        System.out.println("3");
-        query.executeUpdate();
-        return 0;
-//        System.out.println("4");
+        Query query;
+        int res;
+        em.getTransaction().begin();
+        try{
+            res = em.createQuery("DELETE OrderDelivery WHERE id = :id").setParameter("id", id)
+                    .executeUpdate();
+
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        em.getTransaction().commit();
+        return res;
     }
-
-
 }

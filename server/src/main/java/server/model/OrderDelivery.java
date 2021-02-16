@@ -4,9 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-/// Order keyword is reserved.
 @Table(name="OrderDelivery")
-//@javax.persistence.Entity(name = "Orders")
 @NamedQuery(name = "OrderDelivery.findByAddress", query = "SELECT o FROM OrderDelivery o WHERE o.address = :address")
 @NamedQuery(name = "OrderDelivery.findById", query = "SELECT o FROM OrderDelivery o WHERE o.id = :id")
 @NamedQuery(name = "OrderDelivery.deleteById", query = "DELETE FROM OrderDelivery o WHERE o.id = :id")

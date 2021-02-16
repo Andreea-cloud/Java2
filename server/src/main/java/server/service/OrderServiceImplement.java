@@ -31,14 +31,11 @@ public class OrderServiceImplement extends UnicastRemoteObject implements OrderS
                 .findById(orderDTO.getId());
 
         if(!orderOptional.isEmpty()){
-            System.out.println("hello");
             orderRepository.deleteById(orderDTO.getId());
-//            TODO Check proper deletion;
         }
         else {
             throw new IllegalArgumentException();
         }
         return orderDTO.getId();
-
     }
 }

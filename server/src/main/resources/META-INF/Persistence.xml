@@ -22,6 +22,8 @@
 
             <property name="hibernate.show_sql" value="true"/>
 
+            <property name="packagesToScan" value="server.model"/>
+
         </properties>
 
     </persistence-unit>
