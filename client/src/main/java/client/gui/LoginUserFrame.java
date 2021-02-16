@@ -30,6 +30,8 @@ public class LoginUserFrame extends JFrame{
             UserDTO userDTO = new UserDTO(0, username, password);
 
             try{
+                int id = UserController.getInstance().login(userDTO);
+                JOptionPane.showMessageDialog(null, "Successful logged in!");
                 new RegisteredOrdersFrame();
                 dispose();
             }catch(IllegalArgumentException e){

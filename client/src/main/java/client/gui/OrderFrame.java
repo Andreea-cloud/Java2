@@ -37,7 +37,7 @@ public class OrderFrame extends JFrame {
 
             try{
                 int id = OrderController.getInstance().placeOrder(orderDTO);
-                JOptionPane.showMessageDialog(null, "Your order with " + id + " has been placed!");
+                JOptionPane.showMessageDialog(null, "Your order with id #" + id + " has been placed!");
                 new OrderFrame();
                 dispose();
             }catch(IllegalArgumentException e){

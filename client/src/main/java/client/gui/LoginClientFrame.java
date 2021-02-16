@@ -1,6 +1,7 @@
 package client.gui;
 
 import client.controller.ClientController;
+import client.controller.UserController;
 import library.dto.ClientDTO;
 
 import javax.swing.*;
@@ -29,6 +30,8 @@ public class LoginClientFrame extends JFrame{
             ClientDTO clientDTO = new ClientDTO(0, username, password);
 
             try{
+                int id = ClientController.getInstance().login(clientDTO);
+                JOptionPane.showMessageDialog(null, "Successful logged in!");
                 new OrderFrame();
                 dispose();
             }catch(IllegalArgumentException e){

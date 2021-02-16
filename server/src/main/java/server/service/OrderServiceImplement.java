@@ -2,7 +2,7 @@ package server.service;
 
 import library.dto.OrderDTO;
 import library.service.OrderService;
-import server.model.Order;
+import server.model.OrderDelivery;
 import server.repository.OrderRepository;
 
 import java.rmi.RemoteException;
@@ -19,12 +19,26 @@ public class OrderServiceImplement extends UnicastRemoteObject implements OrderS
 
     @Override
     public int placeOrder(OrderDTO orderDTO) throws RemoteException {
-        Optional<Order> orderOptional = orderRepository.findByAddress(orderDTO.getAddress());
+        Optional<OrderDelivery> orderOptional = orderRepository.findByAddress(orderDTO.getAddress());
         return orderRepository.create(orderDTO).getId();
     }
 
     @Override
     public int deliverOrder(OrderDTO orderDTO) throws RemoteException {
-        return 0;
+        System.out.println(orderDTO.getId());
+
+        Optional<OrderDelivery> orderOptional = orderRepository
+                .findById(orderDTO.getId());
+
+        if(!orderOptional.isEmpty()){
+            System.out.println("hello");
+            orderRepository.deleteById(orderDTO.getId());
+//            TODO Check proper deletion;
+        }
+        else {
+            throw new IllegalArgumentException();
+        }
+        return orderDTO.getId();
+
     }
 }

@@ -4,9 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-//@NamedQuery(name = "Order.findByCostIndex", query = "SELECT o FROM Order o WHERE o.costIndex = :costIndex")
-@NamedQuery(name = "Order.findByAddress", query = "SELECT o FROM Order o WHERE o.address = :address")
-public class Order {
+/// Order keyword is reserved.
+@Table(name="OrderDelivery")
+//@javax.persistence.Entity(name = "Orders")
+@NamedQuery(name = "OrderDelivery.findByAddress", query = "SELECT o FROM OrderDelivery o WHERE o.address = :address")
+@NamedQuery(name = "OrderDelivery.findById", query = "SELECT o FROM OrderDelivery o WHERE o.id = :id")
+@NamedQuery(name = "OrderDelivery.deleteById", query = "DELETE FROM OrderDelivery o WHERE o.id = :id")
+public class OrderDelivery {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,7 +54,7 @@ public class Order {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
+        OrderDelivery order = (OrderDelivery) o;
         return id == order.id;
     }
 

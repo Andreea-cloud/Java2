@@ -1,7 +1,6 @@
 package library.dto;
 
 import java.io.Serializable;
-
 public class OrderDTO implements Serializable {
 
     private int id;
